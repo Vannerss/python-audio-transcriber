@@ -3,19 +3,17 @@ import os
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
-
+#
 home_dir = os.path.expanduser("~")
 documents_dir = os.path.join(home_dir, "Documents")
 transcriptionsPath = os.path.join(documents_dir, "Transcriptions")
+r = sr.Recognizer()
+path_file = ""
 
 if not os.path.exists(transcriptionsPath):
     print("Creating missing directory /Transcriptions...")
     os.makedirs(transcriptionsPath, True)
     print("Directory Created. \n")
-
-r = sr.Recognizer()
-
-path_file = ""
 
 
 def browse_file():
