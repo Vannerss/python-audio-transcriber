@@ -81,7 +81,7 @@ root.title("Audio Transcriber")
 
 options = ['es-ES', 'en-US']
 language_dropdown = ttk.Combobox(root, values=options)
-
+language_dropdown.pack(pady=10)
 language_dropdown.set(options[0])
 
 browse_button = tk.Button(root, text="Browse Files", command=browse_file)
