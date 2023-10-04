@@ -57,7 +57,8 @@ def create_unique_file(directory, base_name, extension):
     return file_path
 
 
-def start_transcription(path, lang):
+def start_transcription(path, lang) -> str:
+    text = ""
     with sr.AudioFile(path) as source:
         print('Fetching File...')
         audio_text = r.listen(source)
@@ -69,8 +70,10 @@ def start_transcription(path, lang):
             f.write(text)
             print(f'Audio File Transcribed... Saved in {transcriptionsPath}')
             processing_label.config(text="Success!", fg="green")
+            return text
         except:
             processing_label.config(text="Transcription Attempt Failed.", fg="red")
+            return "Failed"
 
 
 root = tk.Tk()
